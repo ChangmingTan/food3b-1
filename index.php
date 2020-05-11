@@ -33,20 +33,20 @@ $f3->route('GET|POST /order', function($f3) {
         var_dump($_POST);
         //["food"]=>"tacos" ["meal"]=>"lunch"
 
-        //Validate the data
-        /*
-        if (empty($_POST['food']) || !in_array($_POST['meal'], $meals)) {
-            echo "<p>Please enter a food and select a meal</p>";
-        }
-        */
         //Validate food
         if (!validFood($_POST['food'])) {
 
             //Set an error variable in the F3 hive
             $f3->set('errors["food"]', "Invalid food item");
         }
+        if (!validMeal($_POST['meal'])) {
+
+            //Set an error variable in the F3 hive
+            $f3->set('errors["meal"]', "Invalid meal.");
+        }
         //Data is valid
-        else {
+        if (empty($f3->get('errors'))) {
+
             //Store the data in the session array
             $_SESSION['food'] = $_POST['food'];
             $_SESSION['meal'] = $_POST['meal'];

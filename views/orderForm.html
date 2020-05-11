@@ -36,6 +36,11 @@
                                       value="{{ @meal }}"> {{ ucfirst(@meal) }}
                         </input></label><br>
                     </repeat>
+                    <span class="err">
+                        <check if="{{ isset(@errors['meal']) }}">
+                            {{ @errors['meal'] }}
+                        </check>
+                    </span>
                 </div>
             </div>
 
