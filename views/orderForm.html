@@ -15,7 +15,8 @@
                 <label for="food" class="col-sm-2 control-label">What food would you like to order?</label>
 
                 <div class="col-sm-4">
-                    <input class="form-control" type="text" name="food" id="food" >
+                    <input class="form-control" type="text" name="food" id="food"
+                           value="{{ @food }}">
                     <span class="err">
                         <check if="{{ isset(@errors['food']) }}">
                             {{ @errors['food'] }}
@@ -33,7 +34,11 @@
                         <label><input type="radio"
                                       name="meal"
                                       id="{{ @meal }}"
-                                      value="{{ @meal }}"> {{ ucfirst(@meal) }}
+                                      value="{{ @meal }}"
+                            <check if="{{ @meal == @selectedMeal }}" >
+                                      checked="checked"
+                            </check>
+                        > {{ ucfirst(@meal) }}
                         </input></label><br>
                     </repeat>
                     <span class="err">

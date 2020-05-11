@@ -26,8 +26,6 @@ $f3->route('GET /', function() {
 //Order route
 $f3->route('GET|POST /order', function($f3) {
 
-    $meals = getMeals();
-
     //If the form has been submitted
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         var_dump($_POST);
@@ -56,7 +54,9 @@ $f3->route('GET|POST /order', function($f3) {
         }
     }
 
-    $f3->set('meals', $meals);
+    $f3->set('meals', getMeals());
+    $f3->set('food', $_POST['food']);
+    $f3->set('selectedMeal', $_POST['meal']);
     $view = new Template();
     echo $view->render('views/orderForm.html');
 
