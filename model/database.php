@@ -62,4 +62,24 @@ class Database
 
         //5. Process the results - SKIP
     }
+
+    function getOrders()
+    {
+        //Read fro database
+        //1. Define the query
+        $sql = "SELECT * FROM food_order 
+                ORDER BY date_time DESC";
+
+        //2. Prepare the statement
+        $statement = $this->_dbh->prepare($sql);
+
+        //3. Bind the parameters - SKIP
+
+        //4. Execute the statement
+        $statement->execute();
+
+        //5. Process the results
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * tostrander.greenriverdev.com/328/food3b
+ */
+
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -32,9 +36,14 @@ $f3->route('GET|POST /order2', function() {
     $GLOBALS['controller']->order2();
 });
 
-//Breakfast route
+//Summary route
 $f3->route('GET /summary', function() {
     $GLOBALS['controller']->summary();
+});
+
+//Display route
+$f3->route('GET /display', function() {
+    $GLOBALS['controller']->display();
 });
 
 //Run F3
