@@ -50,7 +50,7 @@ class Validate
         //print_r($selectedCondiments);
         //print_r($condiments);
 
-        //We need to check each condiment in our array
+        //We need to check each condiment in the selectedCondiments array
         foreach ($selectedCondiments as $selected) {
             if (!in_array($selected, $condiments)) {
                 return false;
@@ -60,7 +60,7 @@ class Validate
     }
 }
 
-    /*
+    /* for testing purposes only
     echo validMeal('breakfast') ? "yes<br>" : "no<br>";
     echo validMeal('') ? "yes<br>" : "no<br>";
     echo validMeal('dessert') ? "yes<br>" : "no<br>";
