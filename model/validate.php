@@ -46,6 +46,9 @@ class Validate
     */
     function validCondiments($selectedCondiments)
     {
+        if(empty($selectedCondiments))
+            return true;
+
         $condiments = getCondiments();
         //print_r($selectedCondiments);
         //print_r($condiments);

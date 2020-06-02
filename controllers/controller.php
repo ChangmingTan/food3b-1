@@ -118,15 +118,15 @@ class Controller
     {
         //echo "<p>Display method</p>";
         $result = $GLOBALS['db']->getOrders();
+        //var_dump($result);
+
+        $this->_f3->set('orders', $result);
 
         //Create a view that displays *all* of the
         //results, e.g. id, food, meal, condiments, date
         //as a table
-        foreach($result as $row) {
-            echo $row['order_id']." - ".$row['food']."<br>";
-        }
-        //var_dump($result);
-
-
+        $view = new Template();
+        echo $view->render('views/display.html');
+        
     }
 }
